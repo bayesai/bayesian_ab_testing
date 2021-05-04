@@ -1,0 +1,9 @@
+"""
+
+Docstring
+
+"""
+
+
+class BayesianUpdate:
+

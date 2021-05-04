@@ -1,4 +1,5 @@
 from scipy.stats import beta
+import pandas as pd
 
 
 class Beta:
@@ -15,3 +16,11 @@ class Beta:
 
     def gen_sample(self,size):
         return beta(self.a, self.b, size=size)
+
+    def posterior_update(self, df:pd.Series):
+        c = df.sum()
+        n = len(df)
+
+        self.a = self.a + c
+        self.b = self.b + n - c
+
